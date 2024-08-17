@@ -1,7 +1,7 @@
 //the async await used in the index.js file if very common format and is used almost everywhere. Hence we generally use a wapper where that code is written and we wrap it wherever required
 
 const asyncHandler = (requestHandler)=>{
-    (req, res, next) => {
+    return (req, res, next) => {
         Promise.resolve(requestHandler(req, res, next)).catch((err)=>next(err))
     }
 }
