@@ -52,7 +52,7 @@ userSchema.pre("save", async function(next){
     if(!this.isModified("password")){
         return next();
     }
-    this.password = bcrypt.hash(this.password, 10)
+    this.password = await bcrypt.hash(this.password, 10)
     next();
 })  //pre hooks are mongoose middleware which enables use to perform a task just before some specified task. Here we are performing a task just before the saving of the data in the database. Middleware must have the access of next
 
