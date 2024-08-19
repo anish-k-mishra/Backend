@@ -39,7 +39,7 @@ const registerUser = asyncHandler(async(req, res) => {
     
     //User that came from user.model can directly contact with the db as it is made from mongoose.model
 
-    const existedUser = User.findOne({
+    const existedUser = await User.findOne({
         $or: [{username}, {email}] //this will check for the presence of either one of the two given fields in the db. If we would have done: User.findOne({username}), it would have searched for only username
     })
 
